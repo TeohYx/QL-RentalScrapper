@@ -1,0 +1,10 @@
+LOCATION FILE
+sheets/35-60.csv
+
+LISTING
+rent
+
+PROPERTY SEPARATED
+retail-space
+shop-office
+shop

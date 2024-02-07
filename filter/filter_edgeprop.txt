@@ -1,0 +1,9 @@
+LOCATION FILE
+sheets/FM_remain_edgeprop.csv
+
+LISTING
+rent
+
+PROPERTY SEPARATED
+shop
+shop-house

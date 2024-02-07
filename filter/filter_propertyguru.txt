@@ -1,0 +1,10 @@
+LOCATION FILE
+sheets/FM_remain_propertyguru.csv
+
+LISTING
+rent
+
+PROPERTY
+SHOP
+SHOPO
+RTLSP
