@@ -111,7 +111,7 @@ def web_scraping_propertyguru(ws):
              5. From the file, summarize the data by mean, median, etc.
 
     Output: A .xlsx file with complete list of every family mart information.
-
+    
     """
     # Initialize and store the **rental_url** objects in web_scraper list
     for index in range(ws.df.location_amount):
@@ -164,8 +164,6 @@ def web_scraping_propertyguru(ws):
     # print("End? ", ws.check_last_link)
     # if ws.check_last_link:      # Last last last link 
     #     print(f"Data saved in {file}")
-
-
     if ws.analysis == "yes":
         analyse_data(file)
 
@@ -607,7 +605,6 @@ def main(args):
         ws = WebScraping(config['Link']['base_url_iproperty'], args.site, args.option, Database, wb, RentalURLs, args.analysis, None, config['File']['filter_file_iproperty'])
         set_up_filter_and_url(ws)
         web_scraping_iproperty(ws)      
-    
     else:
         print(f"There site {args.site} is not supported")
         sys.exit(0)

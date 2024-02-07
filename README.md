@@ -27,6 +27,7 @@ As this scripts will scrape data based on the given location, therefore the loca
 ```
 (Store No	Store Name	Address	formatted_address_google	location_lat	location_lng	Coordinate)
 ```
+![Example Columns](screenshot/ExampleColumn.png)
 
 To scrap the website, mention it when running the script.
 
