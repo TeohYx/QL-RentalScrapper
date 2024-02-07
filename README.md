@@ -40,18 +40,18 @@ Depending on the websites, each website have different key-value pair to be incl
 
 Some of the important input requirements for each websites that are taken care in this scripts are as followed:
 1. Propertyguru
-      a. Search input: {freetext=(search input)} eg: freetext=Subang<br>
-      b. Listing type: {listing_type=(buy / rent)} eg: listing_type=rent<br>
-      c. Market type: {market=(residential / commercial)} eg: market=commercial<br>
-      d. Property type: {property_type_code[]=(shop / office)} eg: property_type_code[]=RTLSP<br>
+      a. Search input: "freetext=(search input)" eg: freetext=Subang<br>
+      b. Listing type: "listing_type=(buy / rent)" eg: listing_type=rent<br>
+      c. Market type: "market=(residential / commercial)" eg: market=commercial<br>
+      d. Property type: "property_type_code[]=(shop / office)" eg: property_type_code[]=RTLSP<br>
 2. iProperty
-      a. q - search input<br>
-      b. {base_url}/ - sales(buy), rent(rent), etc...<br>
-      c. {base_url}/{b.}/ - retail-space / shop-office, etc...<br>
+      a. Search input: q - search input<br>
+      b. Listing type: "{base_url}/" - sales(buy), rent(rent), etc...<br>
+      c. Property type: "{base_url}/{b.}/" - retail-space / shop-office, etc...<br>
 3. Edgeprop
-      a. keyword - search input<br>
-      b. {base_url}/ - sales(buy), rent(rent), etc...<br>
-      c. {base_url}/{b.}/ - retail-space / shop-office, etc...<br>
+      a. Search input: keyword - search input<br>
+      b. Listing type: "{base_url}/" - sales(buy), rent(rent), etc...<br>
+      c. Property type: "{base_url}/{b.}/" - retail-space / shop-office, etc...<br>
 
 All of them is specified in the filter/ files. 
 Example of filter/filter_propertyguru.txt
