@@ -13,6 +13,10 @@ pip install -r requirements.txt
 
 2. Run the scripts.
 
+By default, when this code is run without any arguments, the default arguements will looked like this:
+
+      Namespace(site='propertyguru', config='config.ini', market='COMMERCIAL', analysis='no', option=1)
+
 ```
 python main.py
 ```
@@ -23,6 +27,8 @@ Note: The website to scrap can be chosen, so far the script supported 3 website,
 3. iProperty - "iproperty"
 
 As this scripts will scrape data based on the given location, therefore the location need to be specified. 
+
+
 
 ```
 (Store No	Store Name	Address	formatted_address_google	location_lat	location_lng	Coordinate)
