@@ -5,6 +5,76 @@ On top on scraping, it also can filter out data in respect of the displacement b
 
 The tool used to extract the longitude/latitude is *www.geoapify.com*.
 
+Cheat Sheets:
+
+```
+Specify output file
+** Specify in config.ini
+
+eg:
+output_file_propertyguru = output/Result_Propertyguru_all.xlsx
+output_file_edgeprop = output/Result_Edgeprop_all.xlsx
+output_file_iproperty = output/Result_Iproperty_all_3560.xlsx
+
+Specify filter file (location file)
+** Specify in config.ini
+
+eg:
+filter_file_propertyguru = filter/filter_propertyguru.txt
+filter_file_edgeprop = filter/filter_edgeprop.txt
+filter_file_iproperty = filter/filter_iproperty.txt
+```
+
+```
+1. pip install -r requirements.txt - Install all the necesssary packages
+2. python main.py - Runs propertyguru by default
+3. python main.py -s "propertyguru" - Runs propertyguru
+4. python main.py -s "edgeprop" - Runs edgeprop
+5. python main.py -s "iproperty" - Run iproperty
+6. python main.py -s "propertyguru" -a "yes" - Allow statistical analysis page at the end (therefore output is always .xlsx)
+7. python analysis.py -f {output_file}.xlsx - Do statistical analysis afterwards with provided output file
+8. python main.py -s "edgeprop" -o 2 - By default its 1, to get the 2nd column from location file. 2 means getting 3rd column, which will be the postcode from address. The file is specify in config.ini 
+```
+
+Depending on the websites, each website have different key-value pair to be included before start scrapping.
+
+Some of the important input requirements for each websites that are taken care in this scripts are as followed:
+1. Propertyguru
+      a. Search input: {freetext=(search input)} eg: freetext=Subang
+      b. Listing type: {listing_type=(buy / rent)} eg: listing_type=rent
+      c. Market type: {market=(residential / commercial)} eg: market=commercial
+      d. Property type: {property_type_code[]=(shop / office)} eg: property_type_code[]=RTLSP
+2. iProperty
+      a. q - search input
+      b. {base_url}/ - sales(buy), rent(rent), etc...
+      c. {base_url}/{b.}/ - retail-space / shop-office, etc...
+3. Edgeprop
+      a. keyword - search input
+      b. {base_url}/ - sales(buy), rent(rent), etc...
+      c. {base_url}/{b.}/ - retail-space / shop-office, etc...
+
+All of them is specified in the filter/ files. 
+Example of filter/filter_propertyguru.txt
+```
+LOCATION FILE
+sheets/FM_remain_propertyguru.csv
+
+LISTING
+rent
+
+PROPERTY
+SHOP
+SHOPO
+RTLSP
+```
+
+Description:
+1. LOCATION FILE - File that stores the list of search input that wish to search (must follow the column format to work correctly)
+2. LISTING - Listing type value as shown at above (eg: rent)
+3. PROPERTY - Property type value that is used in PropertyGuru (eg: RTLSP)
+4. PROPERTY SEPARATED - Property type value that is used in iProperty and EdgeProp (eg: shop / retail-space)
+
+
 1. Install the package from the requirements.txt
 
 ```
@@ -21,6 +91,14 @@ By default, when this code is run without any arguments, the default arguements 
 python main.py
 ```
 
+That means when "python main.py" is given, the script will run as followed:
+1. Site = "propertyguru" --> This runs the "propertyguru" codes
+2. Config = "config.ini" --> This follows the setting on config.ini file
+3. Market = "COMMERCIAL" --> This make the link finds only commercial listing
+4. Analysis = "no" --> This tells the script to not generate the analysis sheets
+5. Option = 1 --> This tells the script to input search using 2nd column of the given search location file. 
+
+
 Note: The website to scrap can be chosen, so far the script supported 3 website, which are - 
 1. PropertyGuru - "propertyguru"
 2. EdgeProp - "edgeprop"
@@ -28,12 +106,20 @@ Note: The website to scrap can be chosen, so far the script supported 3 website,
 
 As this scripts will scrape data based on the given location, therefore the location need to be specified. 
 
-
-
 ```
 (Store No	Store Name	Address	formatted_address_google	location_lat	location_lng	Coordinate)
 ```
 ![Example Columns](screenshot/ExampleColumn.png)
+
+However, only 3 of them are important: Store No, Store Name and Coordinate, meaning the script will still works with these given 3 data.
+
+![Example Columns2](screenshot/ExampleColumn2.png)
+
+sheets/FM_remain.csv is an example of the search location file.
+sheets/ExampleSheets.csv is an example of location file with necessary information
+
+**The file needs to be in .csv**
+
 
 To scrap the website, mention it when running the script.
 
@@ -52,12 +138,9 @@ python analysis.py -f {output_file}.xlsx
 ```
 Note that the file should be in .xlsx extension.
 
-The script runs propertyguru by default.
-
 ** For changing the setting such as the destination file, etc. can refer to the **config.ini** file
 
-
-------------------------------------------------------------------------------------------------
+--------------------------------- Extra Information ---------------------------------
 
 To scrape a new website, the following steps should be followed:
 
