@@ -39,16 +39,16 @@ filter_file_iproperty = filter/filter_iproperty.txt
 Depending on the websites, each website have different key-value pair to be included before start scrapping.
 
 Some of the important input requirements for each websites that are taken care in this scripts are as followed:
-1. Propertyguru
+1. Propertyguru<br>
       a. Search input: "freetext=(search input)" eg: freetext=Subang<br>
       b. Listing type: "listing_type=(buy / rent)" eg: listing_type=rent<br>
       c. Market type: "market=(residential / commercial)" eg: market=commercial<br>
       d. Property type: "property_type_code[]=(shop / office)" eg: property_type_code[]=RTLSP<br>
-2. iProperty
+2. iProperty<br>
       a. Search input: q - search input<br>
       b. Listing type: "{base_url}/" - sales(buy), rent(rent), etc...<br>
       c. Property type: "{base_url}/{b.}/" - retail-space / shop-office, etc...<br>
-3. Edgeprop
+3. Edgeprop<br>
       a. Search input: keyword - search input<br>
       b. Listing type: "{base_url}/" - sales(buy), rent(rent), etc...<br>
       c. Property type: "{base_url}/{b.}/" - retail-space / shop-office, etc...<br>
